@@ -12,10 +12,15 @@ using std::cout;
 void Heap::push(int value){
   int last = INT_MIN;
   bool inserted = false;
+  if(vdata.empty()) {
+  	vdata.push_back(value);
+	return;
+  }
   for(unsigned int i = 0; i < vdata.size(); i++) {
     if(value >= last && value < vdata.at(i)) {
-      vdata.insert(vdata.begin() + i);
+      vdata.insert(vdata.begin() + i, value);
       inserted = true;
+      return;
     }
   }
   if(!inserted) {
