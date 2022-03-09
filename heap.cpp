@@ -10,8 +10,17 @@ using std::cout;
 // Pushes a value into the heap, then ensures
 // the heap is correctly arranged
 void Heap::push(int value){
-  vdata.push_back(value);
-  sort(vdata.begin(), vdata.end());
+  int last = INT_MIN;
+  bool inserted = false;
+  for(unsigned int i = 0; i < vdata.size(); i++) {
+    if(value >= last && value < vdata.at(i)) {
+      vdata.insert(vdata.begin() + i);
+      inserted = true;
+    }
+  }
+  if(!inserted) {
+    vdata.push_back(value);
+  }
 }
 
 // Pops the minimum value off the heap
