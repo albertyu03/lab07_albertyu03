@@ -1,8 +1,10 @@
 // heap.cpp
-// Diba Mirza
+// Albert Yu
 
 #include "heap.h"
-#include <iostream>'
+#include <iostream>
+#include <algorithm>
+#include <climits>
 using std::cout;
 
 // Pushes a value into the heap, then ensures
@@ -26,7 +28,7 @@ int Heap::top(){
   if(!vdata.empty()) {
     return vdata.front();
   } else {
-    return NULL;
+    return INT_MAX;
   }
 }
 
